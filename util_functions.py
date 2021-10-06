@@ -37,19 +37,3 @@ def get_prod_funs(e, field_value=257):
     return temp_poly
 
 
-def reconstruct_polynomial(alpha, poly_alpha, field_value=257):
-    temp_poly = Polynomial([0])
-    t = len(alpha)
-    for i in range(t):
-        poly = Polynomial([1])
-        temp_prod = 1
-        alpha_i = alpha[i]
-        for j in range(t):
-            if (i != j):
-                poly = poly.multiply(Polynomial([1, (field_value - alpha[j]) % field_value]))
-                temp_prod = temp_prod * ((alpha_i - alpha[j] + field_value) % field_value)
-                temp_prod %= field_value
-        poly = poly.divide_by_constant(temp_prod)
-        poly = poly.multiply(Polynomial([poly_alpha[i]]))
-        temp_poly = temp_poly.add(poly)
-    return temp_poly
