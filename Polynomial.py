@@ -4,25 +4,6 @@ class Polynomial(object):
 	def __init__(self, poly_coeff):
 		self.poly = poly_coeff
 
-	# def divide_by_constant(self, c):
-	# 	'''
-	# 	#using numpy
-	# 	p1 = np.array(self.poly).astype(int)
-	# 	for i in range(self.field_value):
-	# 		if (((c * i) % self.field_value) == 1):
-	# 			break
-	# 	res = ((p1 * i) % self.field_value).astype(int)
-	# 	return res
-	# 	'''
-	# 	inv=None
-	# 	p1 = self.poly
-	# 	for j in range(self.field_value):
-	# 		if ((c * j) % self.field_value == 1):
-	# 			inv = j
-	# 			break
-	# 	p1 = (Polynomial(p1)).multiply(Polynomial([inv]))
-	# 	return p1
-
 
 	def add(self, poly2):
 		'''
@@ -57,26 +38,6 @@ class Polynomial(object):
 
 
 	def multiply(self, poly2):
-		'''
-		#using numpy
-		p1 = np.array(self.poly).astype(int)
-		p2 = np.array(poly2.poly).astype(int)
-		l = [0] * (p1.shape[0] + p2.shape[0] - 1)
-		degree_res = len(l) - 1
-		degree_p1 = p1.shape[0] - 1
-		degree_p2 = p2.shape[0] - 1
-		for i in range(p1.shape[0]):
-			for j in range(p2.shape[0]):
-				pos = degree_p1 + degree_p2 - i - j
-				index_l = degree_res - pos
-				l[index_l] += p1[i] * p2[j]
-		if (self.field_value is not None):
-			res = (np.array(l) % (self.field_value)).astype(int)
-		else:
-			res = np.array(l).astype(int)
-		res = np.trim_zeros(res, 'b')
-		return res
-		'''
 		p1 = self.poly
 		p2 = poly2.poly
 		l = [0] * (len(p1) + len(p2) - 1)
