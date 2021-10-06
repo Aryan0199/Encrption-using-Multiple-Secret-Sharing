@@ -33,12 +33,4 @@ shadow_imagesa = test.generate_shadow_images(store_shadows=True)
 #shadow_imagesc = testc.generate_shadow_images(store_shadows=True)
 print ("Shadow Images stored in folder Shadows")
 
-print ("Please enter the number of shadow images to be used for decryption")
-num_available = int(input())
-decrypted_image = test.decrypt_image(shadow_imagesa, num_available)
-#decrypted_imageb = testb.decrypt_image(shadow_imagesb, num_available)
-#decrypted_imagec = testc.decrypt_image(shadow_imagesc, num_available)
-print ("Decrypted Image stored in folder Decrypted_Image")
 
-#t = np.vstack([decrypted_imagea, decrypted_imageb, decrypted_imagec])
-print (decrypted_image.shape)
