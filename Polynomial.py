@@ -6,22 +6,6 @@ class Polynomial(object):
 
 
 	def add(self, poly2):
-		'''
-		#using numpy
-		p1 = np.array(self.poly).astype(int)
-		p2 = np.array(poly2.poly).astype(int)
-		temp1 = np.zeros(abs(p1.shape[0] - p2.shape[0]))
-		if (temp1.shape[0] != 0):
-			if (p1.shape[0] > p2.shape[0]):
-				p2 = np.hstack([temp1, p2]).astype(int)
-			else:
-				p1 = np.hstack([temp1, p1]).astype(int)
-		if (self.field_value is not None):
-			res = np.trim_zeros(((p1 + p2) % (self.field_value)), 'b')
-		else:
-			res = np.trim_zeros((p1 + p2), 'b')
-		return res
-		'''
 		p1 = self.poly
 		p2 = poly2.poly
 		temp1 = [0] * (abs(len(p1) - len(p2)))
