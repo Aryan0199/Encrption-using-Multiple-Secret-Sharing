@@ -28,7 +28,7 @@ class Image_Encryption(object):
 		#Initialising alpha
 		self.alpha = []
 		temp11 = [i for i in range(257)]
-		for i in range(n):
+		for i in range(n): #used to generate random values to be encoded and placed in img_info file
 			temp_variable = np.random.choice(temp11)
 			temp11.remove(temp_variable)
 			self.alpha += [temp_variable]
@@ -38,7 +38,7 @@ class Image_Encryption(object):
 		#Initialising e
 		temp11 = [i for i in range(257)]
 		self.e = []
-		for i in range (k):
+		for i in range (k): #e is used within the debugging function to verify if the lagrange polynomial generated is right or not
 			temp_variable = np.random.choice(temp11)
 			temp11.remove(temp_variable)
 			self.e += [temp_variable]
